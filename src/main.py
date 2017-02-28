@@ -8,17 +8,29 @@ build a network that solves the equation below?
 
 (x + y) + y
 """
-
-from node import Node
+from operator import Add, Mul
+from utils import topological_sort, forward_pass
 from inputNode import Input
-from add import Add
-from utils import *
 
 x, y, z = Input(), Input(), Input()
 
 f = Add(x, y, z)
 
 feed_dict = {x: 4, y: 5, z: 10}
+
+sorted_nodes = topological_sort(feed_dict)
+output = forward_pass(f, sorted_nodes)
+
+# NOTE: because topological_sort set the values for the `Input` nodes we could also access
+# the value for x with x.value (same goes for y).
+print("{} + {} = {} (according to miniflow)".format(feed_dict[x], feed_dict[y], output))
+
+
+l, m, n = Input(), Input(), Input()
+
+f = Mul(x, y, z)
+
+feed_dict = {l: 4, m: 5, n: 10}
 
 sorted_nodes = topological_sort(feed_dict)
 output = forward_pass(f, sorted_nodes)
