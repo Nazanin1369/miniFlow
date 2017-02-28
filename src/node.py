@@ -7,9 +7,9 @@ class Node(object):
         outbound_nodes (array)
         value ()
     """
-    def __init__(self, inbound_nodes):
+    def __init__(self, inbound_nodes=[]):
         # Node(s) from which this Node receives values
-        self.inbound_nodes = inbound_nodes | []
+        self.inbound_nodes = inbound_nodes
         # Node(s) to which this Node passes values
         self.outbound_nodes = []
         # A calculated Value

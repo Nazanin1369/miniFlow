@@ -1,19 +1,4 @@
-from node import Node
-
-class Add(Node):
-    """
-    another subclass of Node, actually can perform a calculation (addition).
-    """
-    def __init__(self, x, y):
-        Node.__init__(self, [x, y])
-
-    def forward(self):
-        """
-        Set the value of this node (`self.value`) to the sum of it's inbound_nodes.
-        """
-        self.value = self.inbound_nodes[0].value + self.inbound_nodes[1].value
-
-
+from inputNode import Input
 
 def topological_sort(feed_dict):
     """
@@ -68,6 +53,7 @@ def forward_pass(output_node, sorted_nodes):
 
     Returns the output Node's value
     """
+
     for n in sorted_nodes:
         n.forward()
 
