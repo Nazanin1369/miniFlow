@@ -29,6 +29,8 @@ class Mul(Node):
 
 
 class Linear(Node):
+    """
+    """
     def __init__(self, inputs, weights, bias):
         Node.__init__(self, [inputs, weights, bias])
 
@@ -58,6 +60,5 @@ class LinearMatrix(Node):
     def forward(self):
         """
         Set the value of this node to the linear transform output.
-
-        Your code goes here!
         """
+        print(self.inbound_nodes[0].value)
