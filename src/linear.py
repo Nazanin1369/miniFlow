@@ -2,6 +2,7 @@ from node import Node
 
 class Linear(Node):
     """
+    Linear Transform function
     """
     def __init__(self, inputs, weights, bias):
         Node.__init__(self, [inputs, weights, bias])

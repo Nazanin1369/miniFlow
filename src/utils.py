@@ -58,3 +58,17 @@ def forward_pass(output_node, sorted_nodes):
         n.forward()
 
     return output_node.value
+
+
+
+def forward_pass_graph(graph):
+    """
+    Performs a forward pass through a list of sorted Nodes.
+
+    Arguments:
+
+        `graph`: The result of calling `topological_sort`.
+    """
+    # Forward pass
+    for n in graph:
+        n.forward()

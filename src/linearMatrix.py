@@ -1,14 +1,17 @@
 from node import Node
-
+import numpy as np
 
 class LinearMatrix(Node):
+    """
+        Z = XW + b
+    """
     def __init__(self, X, W, b):
-        # Notice the ordering of the input nodes passed to the
+        # Notice the ordering of the inputs passed to the
         # Node constructor.
         Node.__init__(self, [X, W, b])
 
     def forward(self):
-        """
-        Set the value of this node to the linear transform output.
-        """
-        print(self.inbound_nodes[0].value)
+        X = self.inbound_nodes[0].value
+        W = self.inbound_nodes[1].value
+        b = self.inbound_nodes[2].value
+        self.value = np.dot(X, W) + b
